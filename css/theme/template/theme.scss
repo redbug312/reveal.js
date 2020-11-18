@@ -53,6 +53,7 @@
 	font-weight: $headingFontWeight;
 	line-height: $headingLineHeight;
 	letter-spacing: $headingLetterSpacing;
+	word-spacing: 2px;
 
 	text-transform: $headingTextTransform;
 	text-shadow: $headingTextShadow;
@@ -67,6 +68,7 @@
 
 .reveal h1 {
 	text-shadow: $heading1TextShadow;
+	text-transform: uppercase;
 }
 
 
@@ -101,8 +103,16 @@
 	font-weight: bold;
 }
 
-.reveal em {
+.reveal em,
+.reveal i {
 	font-style: italic;
+}
+
+.reveal mark {
+	background-color: #BED5F4;
+}
+.reveal mark a {
+	background-color: #DEE2DF;
 }
 
 .reveal ol,
@@ -196,13 +206,17 @@
 }
 
 .reveal table {
-	margin: auto;
+	margin: 0 auto;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 .reveal table th {
-	font-weight: bold;
+	color: $headingColor;
+	font-family: $headingFont;
+	font-weight: $headingFontWeight;
+	line-height: $headingLineHeight;
+	letter-spacing: $headingLetterSpacing;
 }
 
 .reveal table th,
