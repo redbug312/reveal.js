@@ -298,6 +298,10 @@ html.print-pdf .reveal section > .footnote {
 	margin: $blockMargin 0;
 }
 
+.reveal i.em {
+	margin: 0 .2em;
+	transform: scale(1.4);
+}
 
 /*********************************************
  * LINKS
