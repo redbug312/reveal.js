@@ -14,3 +14,4 @@ dist/*.map
 @attachment
 slides.md
 dist/theme/*.css
+plugin/math-katex/lib/katex
