@@ -37,6 +37,39 @@
 }
 
 /*********************************************
+ * LAYOUT & FOOTNOTE
+ *********************************************/
+
+.reveal.center .slides section,
+.reveal.center .slides section > section {
+	min-height: 100% !important;
+	display: flex !important;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.reveal section > .footnote {
+	position: absolute;
+	bottom: 2em;
+	left: 10%;
+	right: 10%;
+	font-size: 0.7em;
+	text-align: left;
+}
+
+html.print-pdf .reveal.center .slides section,
+html.print-pdf .reveal.center .slides section > section {
+	min-height: 0 !important;
+}
+
+html.print-pdf .reveal section > .footnote {
+	position: relative;
+	bottom: 0;
+	width: 80%;
+}
+
+/*********************************************
  * HEADERS
  *********************************************/
 
