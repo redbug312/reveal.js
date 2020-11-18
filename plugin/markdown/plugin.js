@@ -214,7 +214,23 @@ const Plugin = () => {
 
 						// Finished loading external file
 						function( xhr, url ) {
-							section.outerHTML = slidify( xhr.responseText, {
+
+							// Remove YAML front-matter
+							var text = xhr.responseText;
+							text = text.substr(text.search('# '));
+
+							// Support emoji syntax :sunglasses:
+							text = text.replace(/(\s):([a-z0-9_-]+?):(?=\s)/g,
+								'$1<i class="em em-$2"></i>');
+
+							// Escape <br> in block katex
+							// https://github.com/markedjs/marked/issues/1538#issuecomment-526189561
+							text = text.replace(/^(\$\$[\s\S]+?\$\$)$/gm,
+								'\`$1\`');
+
+							// console.log(text);  // debugging
+
+							section.outerHTML = slidify( text, {
 								separator: section.getAttribute( 'data-separator' ),
 								verticalSeparator: section.getAttribute( 'data-separator-vertical' ),
 								notesSeparator: section.getAttribute( 'data-separator-notes' ),
