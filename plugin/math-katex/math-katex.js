@@ -13,12 +13,12 @@
  *
  * @author Johannes Schmitz
  */
-window.RevealMath = window.RevealMath || (function() {
+var revealMathKatex = function( reveal ) {
 	'use strict';
 
 	// --- Options and defaults ------------------------------------------------
 
-	var options = Reveal.getConfig().math || {};
+	var options = reveal.getConfig().math || {};
 
 	options.katexScript     = options.katexScript     || 'plugin/math-katex/lib/katex/katex.min.js';
 	options.katexStylesheet = options.katexStylesheet || 'plugin/math-katex/lib/katex/katex.min.css';
@@ -514,7 +514,7 @@ window.RevealMath = window.RevealMath || (function() {
 		addStylesheet();
 		replaceFormulas();
 
-		Reveal.layout();    // Update the slide layout
+		reveal.layout();    // Update the slide layout
 
 		// Trigger `math-rendered` event
 		var event = document.createEvent( 'HTMLEvents', 1, 2 );
@@ -525,4 +525,11 @@ window.RevealMath = window.RevealMath || (function() {
 
 	loadKatex( runPlugin );
 
-})();
+}
+
+window.RevealMathKatex = window.RevealMathKatex || function () {
+    return {
+        id: 'reveal-math-katex',
+        init: revealMathKatex,
+    }
+}
