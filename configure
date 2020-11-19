@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+notable=$HOME/.local/share/notable/slides
+katex=https://github.com/KaTeX/KaTeX/releases/download/v0.12.0/katex.tar.gz
+
+while : ; do
+    [ -L slides.md ] && break
+    read -p 'Create symlinks to Notable data directory (slides)? [Y/n] ' response
+    case "$response" in
+        y|Y|'')
+            echo Create symlink slides.md to $(realpath slides.md).
+            ln -sf $notable/notes/TSN\ Group\ Meeting.md slides.md
+            echo Create symlink @attachment to $(realpath @attachment).
+            ln -sf $notable/attachments @attachment
+            break
+            ;;
+        n|N)
+            ln -sf demo.md slides.md
+            echo Create symlink slides.md to demo.md.
+            break
+            ;;
+        *)
+            echo Unknown selection: only [nyNY] allowed
+            ;;
+    esac
+done
+
+while : ; do
+    [ -d plugin/math-katex/lib/katex ] && break
+    read -p 'Download KaTeX 0.12.0 from GitHub releases? [Y/n] ' response
+    case "$response" in
+        y|Y|'')
+            echo Download KaTeX 0.12.0 from $katex.
+            wget $katex -O /tmp/katex.tar.gz
+            mkdir -p plugin/math-katex/lib
+            tar xf /tmp/katex.tar.gz -C plugin/math-katex/lib
+            break
+            ;;
+        n|N)
+            echo Skip. Notice formulas will not be rendered.
+            break
+            ;;
+        *)
+            echo Unknown selection: only [nyNY] allowed
+            ;;
+    esac
+done
+
+while : ; do
+    [ -d node_modules ] && break
+    read -p 'Download npm packages and build css themes? [Y/n] ' response
+    case "$response" in
+        y|Y|'')
+            echo Download npm packages
+            npm ci
+            echo Build css themes and perform unit tests
+            npm run build
+            break
+            ;;
+        n|N)
+            echo Skip. Notice npm packages are still required to run reveal.js
+            break
+            ;;
+        *)
+            echo Unknown selection: only [nyNY] allowed
+            ;;
+    esac
+done
+
+echo Done. You can do \`npm start\` to run reveal.js server
