@@ -13,6 +13,8 @@
 
 // Include theme-specific fonts
 @import url(./fonts/source-sans-pro/source-sans-pro.css);
+@import url(./fonts/ubuntu/ubuntu.css);
+@import url(./fonts/lato/lato.css);
 
 
 // Override theme settings (see ../template/settings.scss)
@@ -23,7 +25,7 @@ $headingColor: #222;
 
 $mainFontSize: 22px;
 $mainFont: Ubuntu, 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: Lato, IPAPGothic, 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: Lato, 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: -0.5px;
 $headingTextTransform: none;
