@@ -308,6 +308,16 @@ html.print-pdf .reveal section > .footnote {
 	font-style: normal;
 }
 
+.reveal a.external-link,
+.reveal a.external-link:hover {
+	color: $mainColor;
+}
+
+.reveal a.external-link::after {
+    content: ' \f08e';
+	font-family: FontAwesome;
+}
+
 /*********************************************
  * LINKS
  *********************************************/
