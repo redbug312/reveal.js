@@ -4,6 +4,7 @@ const glob = require('glob')
 const yargs = require('yargs')
 const colors = require('colors')
 const qunit = require('node-qunit-puppeteer')
+const log = require('fancy-log');
 
 const {rollup} = require('rollup')
 const {terser} = require('rollup-plugin-terser')
@@ -261,13 +262,20 @@ gulp.task('package', gulp.series('default', () =>
 gulp.task('reload', () => gulp.src(['*.html', '*.md'])
     .pipe(connect.reload()));
 
+function accessLog(req, res, next) {
+    // https://stackoverflow.com/a/32240044
+    log(req.connection.remoteAddress, '-', req.method, req.url, 'HTTP/' + req.httpVersion, res.statusCode);
+    next();
+}
+
 gulp.task('serve', () => {
 
     connect.server({
         root: root,
         port: port,
         host: '0.0.0.0',
-        livereload: true
+        livereload: true,
+        middleware: (connect, opt) => [accessLog],
     })
 
     gulp.watch(['*.html', '*.md'], gulp.series('reload'))
