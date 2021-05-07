@@ -13,8 +13,6 @@
 
 // Include theme-specific fonts
 @import url(./fonts/source-sans-pro/source-sans-pro.css);
-@import url(./fonts/ubuntu/ubuntu.css);
-@import url(./fonts/lato/lato.css);
 
 
 // Override theme settings (see ../template/settings.scss)
@@ -23,13 +21,13 @@ $backgroundColor: #fff;
 $mainColor: #222;
 $headingColor: #222;
 
-$mainFontSize: 22px;
-$mainFont: Ubuntu, 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: Lato, 'Source Sans Pro', Helvetica, sans-serif;
+$mainFontSize: 42px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
-$headingLetterSpacing: -0.5px;
-$headingTextTransform: none;
-$headingFontWeight: 700;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
 $linkColor: #2a76dd;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );

@@ -1,0 +1,170 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+@import url(./fonts/ubuntu/ubuntu.css);
+@import url(./fonts/lato/lato.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 22px;
+$mainFont: Ubuntu, 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: Lato, 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: -0.5px;
+$headingTextTransform: none;
+$headingFontWeight: 700;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+/*********************************************
+ * OVERRIDEN CSS
+ *********************************************/
+
+.reveal h1, .reveal h2, .reveal h3,
+.reveal h4, .reveal h3, .reveal h6 {
+    word-spacing: 2px;
+}
+
+.reveal h1 {
+    text-transform: uppercase;
+}
+
+.reveal em, .reveal i {
+    font-style: italic;
+}
+
+.reveal mark {
+    background-color: #BED5F4;
+}
+
+.reveal mark a {
+    background-color: #DEE2DF;
+}
+
+.reveal pre {
+    font-size: 18px;
+    line-height: 1em;
+    box-shadow: none;
+}
+
+.reveal pre code {
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.reveal dl, .reveal table {
+    margin: 1em 0;
+}
+
+/*********************************************
+ * CUSTOMIZED CLASSES
+ *********************************************/
+
+.reveal i.em {
+    margin: 0 .2em;
+    transform: scale(1.2);
+}
+
+.reveal table i.em {
+    margin: 0;
+    transform: scale(1);
+}
+
+.reveal i.fa {
+    font-family: FontAwesome;
+    font-style: normal;
+}
+
+.reveal a.external-link,
+.reveal a.external-link:hover {
+    color: $mainColor;
+}
+
+.reveal a.external-link::after {
+    content: ' \f08e';
+    font-family: FontAwesome;
+}
+
+.reveal .greyout {
+    opacity: 0.4;
+}
+
+.reveal #reference + ol {
+    font-size: 0.7em;
+}
+
+.reveal #reference + ol li > a {
+    color: $mainColor;
+}
+
+.reveal #reference + ol li > a:hover {
+    color: lighten( $mainColor, 30% );
+}
+
+.reveal #reference + ol li::marker {
+    content: "[" counter(list-item) "]\00A0";
+}
+
+/*********************************************
+ * FOOTNOTE
+ *********************************************/
+
+.reveal.center .slides section,
+.reveal.center .slides section > section {
+    min-height: 100% !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reveal section > .footnote {
+    position: absolute;
+    bottom: 2em;
+    left: 10%;
+    right: 10%;
+    font-size: 0.7em;
+    text-align: left;
+}
+
+html.print-pdf .reveal.center .slides section,
+html.print-pdf .reveal.center .slides section > section {
+    min-height: 0 !important;
+}
+
+html.print-pdf .reveal section > .footnote {
+    position: relative;
+    bottom: 0;
+    width: 80%;
+}
