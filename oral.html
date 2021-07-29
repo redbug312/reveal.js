@@ -8,17 +8,23 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/fgcnlab.css" id="theme">
+		<link rel="stylesheet" href="node_modules/emoji-awesome/dist/css/twitter.min.css">
+		<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="assets/hljs/stackoverflow-light.css" id="highlight-theme">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-                    <img src="assets/honk.jpg" alt="honk">
-				</section>
+				<section data-markdown="oral.md"
+						 data-separator="^\n---\n"
+						 data-separator-vertical="^\n----\n"
+						 data-separator-notes="^<!-- NOTE\n"
+						 data-background-image="assets/background.svg"
+						 data-background-size="contain"
+						 data-background-opacity="0.7">
 			</div>
 		</div>
 
@@ -26,15 +32,18 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/math-katex/math-katex.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				slideNumber: "c",
+				markdown: { breaks: true, smartypants: true },
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealMathKatex ],
 			});
 		</script>
 	</body>
