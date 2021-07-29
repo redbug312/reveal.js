@@ -116,6 +116,11 @@ $heading4Size: 1.6em;
     margin: 1em;
 }
 
+.reveal table {
+    font-size: 0.75em;
+    margin-top: 0.25em;
+}
+
 /*********************************************
  * CUSTOMIZED CLASSES
  *********************************************/
@@ -153,10 +158,12 @@ $heading4Size: 1.6em;
     font-size: 20px;
 }
 
+.reveal section > .footnote > a,
 .reveal #reference + ol li > a {
     color: $mainColor;
 }
 
+.reveal section > .footnote > a:hover,
 .reveal #reference + ol li > a:hover {
     color: lighten( $mainColor, 30% );
 }
@@ -186,7 +193,11 @@ $heading4Size: 1.6em;
 }
 
 .reveal section > h1:first-child {
-    margin: 15% 5% 5%;
+    display: none;
+}
+
+.reveal section > h1:first-child + h2 {
+    margin: 15% 0 5%;
 }
 
 html:not(.print-pdf) .reveal section > h4:first-child {
@@ -200,16 +211,11 @@ html:not(.print-pdf) .reveal section > :is(ul, ol) {
 }
 
 html:not(.print-pdf) .reveal section > .footnote {
-    // position: absolute;
-    // bottom: 2em;
-    // left: 10%;
-    // right: 10%;
     margin-block-start: auto;
     margin-block-end: 35%;
-    font-size: 0.6em;
+    font-size: 0.5em;
     text-align: left;
     width: 90%;
-    // align-self: flex-end;
 }
 
 html.print-pdf .reveal.center .slides section,
@@ -229,9 +235,14 @@ html.print-pdf .reveal section > :is(ul, ol) {
 }
 
 html.print-pdf .reveal section > .footnote {
-    font-size: 0.6em;
+    font-size: 0.5em;
     text-align: left;
     margin: 5%;
+}
+
+html.print-pdf .reveal section > .footnote::before {
+    content: '';
+    height: max-content;
 }
 
 /*********************************************
