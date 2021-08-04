@@ -84,7 +84,11 @@ $heading4Size: 1.0em;
 }
 
 .reveal dl, .reveal table {
-    margin: 1em 0;
+    margin: 1em auto;
+}
+
+.reveal img {
+    margin: 0 auto;
 }
 
 /*********************************************
@@ -149,13 +153,12 @@ $heading4Size: 1.0em;
     align-items: center;
 }
 
-.reveal section > .footnote {
+html:not(.print-pdf) .reveal section > .footnote {
     position: absolute;
     bottom: 2em;
-    left: 10%;
-    right: 10%;
     font-size: 0.7em;
     text-align: left;
+    margin: 5% 5% 0;
 }
 
 html.print-pdf .reveal.center .slides section,
@@ -164,7 +167,7 @@ html.print-pdf .reveal.center .slides section > section {
 }
 
 html.print-pdf .reveal section > .footnote {
-    position: relative;
-    bottom: 0;
-    width: 80%;
+    font-size: 0.7em;
+    text-align: left;
+    margin: 5% 5% 0;
 }
