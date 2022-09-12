@@ -214,7 +214,10 @@ const Plugin = () => {
 
 						// Finished loading external file
 						function( xhr, url ) {
-							section.outerHTML = slidify( xhr.responseText, {
+							// Remove YAML front-matter
+							var text = xhr.responseText;
+							text = text.substr(text.search('# '));
+							section.outerHTML = slidify( text, {
 								separator: section.getAttribute( 'data-separator' ),
 								verticalSeparator: section.getAttribute( 'data-separator-vertical' ),
 								notesSeparator: section.getAttribute( 'data-separator-notes' ),
